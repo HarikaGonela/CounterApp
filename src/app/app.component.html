@@ -1,8 +1,8 @@
 <div class="container">
- <p>This is a Counter Application</p>
- <div class="counter">
-  <button class="decrement" (click)="decrement()">-</button>
-  {{counter}}
-  <button class="increment" (click)="increment()">+</button>
- </div>
+<p>This ia Counter Application</p>
+<nav>
+    <a routerLink="/add-delete" style="margin-right:35px">Add/Delete</a> 
+    <a routerLink="/multiply">Multiply</a>
+</nav>
+<router-outlet></router-outlet>
 </div>
