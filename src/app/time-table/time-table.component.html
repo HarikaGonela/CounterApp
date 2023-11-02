@@ -1,0 +1,13 @@
+<p>time-table works!</p>
+<!-- <div class="timetable">
+    <input type="number" id="multiplier" name="multiplier">
+    <button type="button" (click)="multiplication()">table</button>
+</div> -->
+
+<div class="timetable">
+    <table>
+        <tr *ngFor='let i of number'>
+            <td>{{operationService.counterValue}} * {{i}} ={{operationService.counterValue *i}}</td>
+        </tr>
+    </table>
+</div>
