@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OperationService } from '../shared/operation.service';
+
 
 @Component({
   selector: 'app-multiply',
@@ -7,14 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MultiplyComponent implements OnInit {
 
-  counter = 1;
-  constructor() { }
+  constructor(public operationService: OperationService) { }
+  
 
   ngOnInit(): void {
   }
-
+  
   multiply(){
-    this.counter = this.counter + (this.counter *2); 
+    this.operationService.counterValue = this.operationService.counterValue * 2;
   }
-
 }

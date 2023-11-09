@@ -1,0 +1,9 @@
+.timetable{
+    display: flex;
+}
+
+.table, .lastTables{
+    border: 1px solid #ddd;
+    flex: 1;
+    margin: 18px;
+}

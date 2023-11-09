@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OperationService } from '../shared/operation.service';
 
 @Component({
   selector: 'app-add-delete',
@@ -7,18 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(public operationService: OperationService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
-
-  counter = 0;
-
   decrement(){
-    this.counter = this.counter-2;
+    this.operationService.counterValue = this.operationService.counterValue - 2;
   }
   increment(){
-    this.counter = this.counter+2;
+    this.operationService.counterValue = this.operationService.counterValue + 2;
   }
-
 }
