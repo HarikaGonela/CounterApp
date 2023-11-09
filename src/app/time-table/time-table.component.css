@@ -1,9 +1,9 @@
-timetable{
-   margin-left: 350px;
+.timetable{
+    display: flex;
 }
-table, td {
-    border: 1px solid grey;
-    border-collapse: collapse;
-    margin-left: 325px;
-    
+
+.table, .lastTables{
+    border: 1px solid #ddd;
+    flex: 1;
+    margin: 18px;
 }

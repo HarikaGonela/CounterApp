@@ -10,8 +10,6 @@ export class AddDeleteComponent implements OnInit {
 
   constructor(public operationService: OperationService) { }
 
-  out = 0;
-
   ngOnInit() {
     
   }
