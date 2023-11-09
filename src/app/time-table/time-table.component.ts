@@ -7,17 +7,12 @@ import { OperationService } from '../shared/operation.service';
   styleUrls: ['./time-table.component.css']
 })
 export class TimeTableComponent implements OnInit {
+  result = this.operationService.counterValue;
 
   constructor(public operationService : OperationService) { }
 
   ngOnInit(): void {
   }
 
-  number:any= [1,2,3,4,5,6,7,8,9,10];
-
-  // multiplication(){
-  //   this.operationService.counterValue = this.operationService.counterValue;
-
-  // }
-
+   number:any = [1,2,3,4,5,6,7,8,9,10];
 }
