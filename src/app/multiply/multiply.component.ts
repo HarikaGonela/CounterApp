@@ -7,15 +7,15 @@ import { OperationService } from '../shared/operation.service';
   templateUrl: './multiply.component.html',
   styleUrls: ['./multiply.component.css']
 })
-export class MultiplyComponent implements OnInit {
+export class MultiplyComponent {
+  operationService: OperationService;
 
-  constructor(public operationService: OperationService) { }
-  
-
-  ngOnInit(): void {
+  constructor(operationService: OperationService) {
+    this.operationService = operationService;
   }
-  
+
   multiply(){
-    this.operationService.counterValue = this.operationService.counterValue * 2;
+    const currentValue = this.operationService.getCounterValue()
+    this.operationService.updateCounter(currentValue * 2)
   }
 }

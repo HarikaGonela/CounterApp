@@ -1,22 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { OperationService } from '../shared/operation.service';
+import {map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-add-delete',
   templateUrl: './add-delete.component.html',
   styleUrls: ['./add-delete.component.css']
 })
-export class AddDeleteComponent implements OnInit {
+export class AddDeleteComponent {
+  operationService: OperationService;
 
-  constructor(public operationService: OperationService) { }
-
-  ngOnInit() {
-    
+  constructor(operationService: OperationService) {
+    this.operationService = operationService;
   }
+
   decrement(){
-    this.operationService.counterValue = this.operationService.counterValue - 2;
+    const currentValue = this.operationService.getCounterValue()
+    this.operationService.updateCounter(currentValue - 2)
   }
+
   increment(){
-    this.operationService.counterValue = this.operationService.counterValue + 2;
+    const currentValue = this.operationService.getCounterValue()
+    this.operationService.updateCounter(currentValue + 2)
   }
+
 }

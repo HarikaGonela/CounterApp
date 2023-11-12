@@ -1,15 +1,16 @@
 <p>time-table works!</p>
 <div class="timetable">
-    <div class="table">
+    <div class="table" *ngIf="(value$ | async)!">
         <div *ngFor='let i of number'>
-            <div>{{result}} * {{i}} ={{result *i}}</div>
+            <div>{{(value$ | async )!}} * {{i}} = {{(value$ | async)! * i}}</div>
         </div>
-        
     </div>
 
-    <div class="lastTables" *ngFor='let result of [result *8 , result*9,result*10]'>
-        <div *ngFor="let i of number">
-            <div>{{result}} * {{i}} = {{result * i}}</div>
-        </div>
+    <div *ngIf="(value$ | async)!">
+      <div class="lastTables" *ngFor='let result of [(value$ | async)! *8 , (value$ | async)! *9, (value$ | async)! *10]'>
+          <div *ngFor="let i of number">
+              <div>{{result}} * {{i}} = {{result * i}}</div>
+          </div>
+      </div>
     </div>
 </div>

@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { OperationService } from '../shared/operation.service';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-time-table',
   templateUrl: './time-table.component.html',
   styleUrls: ['./time-table.component.css']
 })
-export class TimeTableComponent implements OnInit {
-  result = this.operationService.counterValue;
+export class TimeTableComponent {
+  value$: Observable<number>;
+  number: number[] = [1,2,3,4,5,6,7,8,9,10];
 
-  constructor(public operationService : OperationService) { }
-
-  ngOnInit(): void {
+  constructor(operationService : OperationService) {
+    this.value$ = operationService.counterValue$;
   }
 
-   number:any = [1,2,3,4,5,6,7,8,9,10];
 }
