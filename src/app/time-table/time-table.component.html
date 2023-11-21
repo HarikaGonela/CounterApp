@@ -7,9 +7,9 @@
         
     </div>
 
-    <div class="lastTables" *ngFor='let result of [result *8 , result*9,result*10]'>
+    <div class="lastTables" *ngFor='let multiplier of [8 , 9,10]'>
         <div *ngFor="let i of number">
-            <div>{{result}} * {{i}} = {{result * i}}</div>
+            <div>{{result * multiplier}} * {{i}} = {{result * multiplier * i}}</div>
         </div>
     </div>
 </div>
