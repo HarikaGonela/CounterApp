@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OperationService } from '../shared/operation.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -7,15 +8,23 @@ import { OperationService } from '../shared/operation.service';
   templateUrl: './multiply.component.html',
   styleUrls: ['./multiply.component.css']
 })
-export class MultiplyComponent implements OnInit {
+export class MultiplyComponent implements OnInit, OnDestroy {
 
-  constructor(public operationService: OperationService) { }
+  private subscription : Subscription;
+  counterValue!: number;
+
+  constructor(public operationService: OperationService) {
+    this.subscription = this.operationService.counterValue$.subscribe((value)=>{this.counterValue = value;});
+   }
   
 
   ngOnInit(): void {
   }
   
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
   multiply(){
-    this.operationService.counterValue = this.operationService.counterValue * 2;
+    this.operationService.updateCounterValue(this.counterValue * 2);
   }
 }
